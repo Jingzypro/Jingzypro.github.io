@@ -4,9 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="About, Yushi">
-    <meta name="description" content="The purpose is to write down the notes and thoughts when learning.
-">
+    <meta name="keywords" content="Artificial Intelligence final notes, Yushi">
+    <meta name="description" content="Contain the note and relevant examples of the following topic:
+
+Constraint Satisfication Problems
+Machine Learning
+Deep ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>About | Yushi</title>
+    <title>Artificial Intelligence final notes | Yushi</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -335,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">About</h1>
+                    <h1 class="description center-align post-title">Artificial Intelligence final notes</h1>
                 </div>
             </div>
         </div>
@@ -362,12 +365,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Artificial-Intelligence/">
+                                <span class="chip bg-color">Artificial Intelligence</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ComputerScience/" class="post-category">
+                                ComputerScience
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -383,21 +399,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-12-07
+                    2025-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    12
+                    834
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    5 Min
                 </div>
                 
 
@@ -417,7 +433,159 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>The purpose is to write down the notes and thoughts when learning.</p>
+                <p>Contain the note and relevant examples of the following topic:</p>
+<ul>
+<li>Constraint Satisfication Problems</li>
+<li>Machine Learning</li>
+<li>Deep Learning</li>
+</ul>
+<h2 id="Constraint-Satisfaction-Problems"><a href="#Constraint-Satisfaction-Problems" class="headerlink" title="Constraint Satisfaction Problems"></a>Constraint Satisfaction Problems</h2><ul>
+<li><p>Introduction</p>
+</li>
+<li><p>Backtracking Search of CSPs</p>
+</li>
+<li><p>Variable ordering</p>
+<ul>
+<li>Minimum remaining values(MRV) heuristics </li>
+<li>Degree heuristics</li>
+</ul>
+</li>
+<li><p>Value ordering </p>
+<ul>
+<li>Least constraining value heuristic</li>
+</ul>
+</li>
+<li><p>Inference </p>
+<ul>
+<li>Forward checking </li>
+<li>Arc consistency (AC-3) algorithm</li>
+</ul>
+</li>
+</ul>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>CPS &#x3D; {X, D, C}<br>variable, domain &amp; constraint</p>
+<h6 id="Constraint-Graph-Constraint-Hypergraph"><a href="#Constraint-Graph-Constraint-Hypergraph" class="headerlink" title="Constraint Graph &amp; Constraint Hypergraph"></a>Constraint Graph &amp; Constraint Hypergraph</h6><p>Constraint Graph: [Nodes, Arcs]</p>
+<p>Constraint Hypergraph: [Nodes, Arcs, Boxes]</p>
+<h4 id="Classic-example"><a href="#Classic-example" class="headerlink" title="Classic example"></a>Classic example</h4><p>Map-coloring &amp; Cryptarithmetic Problem </p>
+<h4 id="Standard-Search-Algorithm-Vs-CPS-Algorithm"><a href="#Standard-Search-Algorithm-Vs-CPS-Algorithm" class="headerlink" title="Standard Search Algorithm Vs CPS Algorithm"></a>Standard Search Algorithm <strong>Vs</strong> CPS Algorithm</h4><p>The <em><strong>standard search algorithms</strong></em> treat the problems as a blind search over all possible assignments, while most of these assignments violate constraints. But they explore them anyway, wasting time and space.</p>
+<p><em><strong>CSP-specific algorithms</strong></em> are much faster because they use constraints to prune the search space early.</p>
+<h4 id="Using-Backtracking-Search-for-CSPs"><a href="#Using-Backtracking-Search-for-CSPs" class="headerlink" title="Using Backtracking Search for CSPs"></a>Using Backtracking Search for CSPs</h4><p>Using DFS with single-variable assignments at each level is called <em><strong>backtracking search</strong></em> </p>
+<p>Variable assignment is <em><strong>commutative</strong></em> </p>
+<h4 id="Improving-Search-Efficiency"><a href="#Improving-Search-Efficiency" class="headerlink" title="Improving Search Efficiency"></a>Improving Search Efficiency</h4><p><em><strong>General-purpose heuristics</strong></em> and <em><strong>Inference</strong></em> can dramatically improve search efficiency </p>
+<ul>
+<li><p>Which variable should be assigned next?</p>
+<ul>
+<li>Minimum Remaining Values(MRV) heuristic</li>
+<li>Degree heuristic</li>
+</ul>
+</li>
+<li><p>In what order should the chosen variable’s values be tried?</p>
+<ul>
+<li>Least Constraining Value heuristic</li>
+</ul>
+</li>
+<li><p>Using inference during search</p>
+<ul>
+<li>Forward Checking </li>
+<li>AC-3 Algorithms</li>
+</ul>
+</li>
+</ul>
+<h5 id="Minimum-Remaining-Values-MRV-heuristic"><a href="#Minimum-Remaining-Values-MRV-heuristic" class="headerlink" title="Minimum Remaining Values(MRV) heuristic"></a>Minimum Remaining Values(MRV) heuristic</h5><p>Choose the variable with the <em><strong>fewest</strong></em> legal values left</p>
+<h5 id="Degree-heuristic"><a href="#Degree-heuristic" class="headerlink" title="Degree heuristic"></a>Degree heuristic</h5><p>Choose the variable with the <em><strong>most constraints</strong></em> on remaining (<u><em><strong>unassigned</strong></em></u>) variable, or that has the largest number of unassigned neighbours.</p>
+<p>In the Backtracking Algorithm, first apply the <em><strong>MRV heuristic.</strong></em> If there are 2 or more variables left after applying MRV, apply the <em><strong>Degree heuristic</strong></em>.</p>
+<h5 id="Least-Constraining-Value-heuristic"><a href="#Least-Constraining-Value-heuristic" class="headerlink" title="Least Constraining Value heuristic"></a>Least Constraining Value heuristic</h5><p>Order its domain values according to the number of values they rule out in the domain of the unassigned neighbour.</p>
+<h5 id="Forward-Checking"><a href="#Forward-Checking" class="headerlink" title="Forward Checking"></a>Forward Checking</h5><p>After a variable is assigned a value, update the domain values of its neighbors (a neighbor is another variable that shares one or more constraints with the current variable.</p>
+<p>Forward checking does not provide early detection for all failures. -&gt;</p>
+<h5 id="AC-3-Algorithm"><a href="#AC-3-Algorithm" class="headerlink" title="AC-3 Algorithm"></a>AC-3 Algorithm</h5><p>One of the Constraint Propagation is <em><strong>Arc Consistency</strong></em></p>
+<p><em><strong>AC-3</strong></em> is the most popular Arc Consistency algorithm</p>
+<p>If X loses a value, the neighbors of X need to be rechecked</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>![image-20251208151506908](&#x2F;Users&#x2F;yushi.jing&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20251208151506908.png)</p>
+<p>MRV is the domain of the variable</p>
+<p>DH is calculated by Constraint Hypergraph</p>
+<p>![image-20251208154303826](&#x2F;Users&#x2F;yushi.jing&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20251208154303826.png)</p>
+<p>In X -&gt; Y, for every value in X, there is one value in Y that satisfies the constraint.</p>
+<p>If not, delete the value in X and recheck the neighbour of X.</p>
+<h2 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h2><ul>
+<li>General concepts</li>
+<li>Supervised learning, unsupervised learning, semi-supervised learning, reinforcement learning</li>
+<li>Decision tree learning<ul>
+<li>Decision tree learning algorithm</li>
+<li>Information gain for choosing attributes</li>
+</ul>
+</li>
+</ul>
+<h5 id="General-Concepts"><a href="#General-Concepts" class="headerlink" title="General Concepts"></a>General Concepts</h5><p>![image-20251208155711206](&#x2F;Users&#x2F;yushi.jing&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20251208155711206.png)</p>
+<p><strong>Overfitting</strong></p>
+<p>Overfitting happens when a model learns the training data too well, including noise and random patterns that are not truly general.  It performs great on the training set but poorly on new unseen data.</p>
+<p><strong>Underfitting</strong></p>
+<p>The chosen model is too simple to find a pattern in the training data.</p>
+<p><strong>Generalization</strong></p>
+<p>Generalization is the ability of a model to perform well not only on the training set but also on new unseen data.</p>
+<h5 id="Types-of-Learning-Methods"><a href="#Types-of-Learning-Methods" class="headerlink" title="Types of Learning Methods"></a>Types of Learning Methods</h5><p><strong>Supervised Learning</strong></p>
+<p>Learns from labeled data (input + correct output).</p>
+<p><strong>Unsupervised Learning</strong></p>
+<p>Learns from unlabeled data.</p>
+<p>Learn from structures like clustering</p>
+<p><strong>Semi-supervised Learning</strong></p>
+<p>Uses a small set of labeled data together with a large set of unlabeled data.</p>
+<p><strong>Self-supervised Learning</strong></p>
+<p>Uses no human labels; the model generates its own training targets.</p>
+<p><strong>Reinforcement Learning</strong></p>
+<p>Learns by interacting with an environment and receiving rewards or penalties.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Label</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Supervised Learning</strong></td>
+<td>Yes</td>
+<td>Image classification, spam detection, price prediction</td>
+</tr>
+<tr>
+<td><strong>Unsupervised Learning</strong></td>
+<td>No</td>
+<td>Clustering</td>
+</tr>
+<tr>
+<td><strong>Semi-supervised Learning</strong></td>
+<td>Less</td>
+<td>Medical Imaging</td>
+</tr>
+<tr>
+<td><strong>Self-supervised Learning</strong></td>
+<td>No</td>
+<td>Image inpainting</td>
+</tr>
+<tr>
+<td><strong>Reinforcement Learning</strong></td>
+<td>Reward</td>
+<td>Robotics, autonomous driving</td>
+</tr>
+</tbody></table>
+<h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><p><strong>How to choose a model</strong></p>
+<p>Construct or adjust h to agree with f on the training set<br>h is consistent if it agrees with f on the given example</p>
+<p>Ockham’s razor principle: prefer the simplest hypothesis consistent with data</p>
+<h4 id="Decision-Tree-Learning"><a href="#Decision-Tree-Learning" class="headerlink" title="Decision Tree Learning"></a>Decision Tree Learning</h4><p>Learn a decision tree from training examples using supervised learning </p>
+<p>The decision tree can be used to make decisions for us in the future after learning</p>
+<p><em><strong>Example:</strong></em></p>
+<p>​	decide whether to wait for a table at a restaurant based on the following attributes</p>
+<img src="/Users/yushi.jing/Library/Application Support/typora-user-images/image-20251208185203125.png" alt="image-20251208185203125" style="zoom:50%;" />
+
+<p>A possible decision tree based on the given examples </p>
+<img src="/Users/yushi.jing/Library/Application Support/typora-user-images/image-20251208185728409.png" alt="image-20251208185728409" style="zoom:50%;" />
+
+<p>The decision tree learning algorithm</p>
+<img src="/Users/yushi.jing/Library/Application Support/typora-user-images/image-20251208185844235.png" alt="image-20251208185844235" style="zoom: 50%;" />
+
+<p>How to choose the best attribute?<br>The good attribute splits the examples into subsets that are ideally all positive or all negative </p>
+<h5 id="Information-gain"><a href="#Information-gain" class="headerlink" title="Information gain"></a>Information gain</h5><p>Entropy H(V): a measure of the uncertainty of a random variable V<br>More information -&gt; reduced randomness or entropy</p>
+<p>For a random variable (V) with values (v_k), each with probability (P(v_k)),</p>
+<p>(H(V) &#x3D; \sum_{k} P(v_k) \log_2 \frac{1}{P(v_k)} &#x3D; -\sum_{k} P(v_k) \log_2 P(v_k))</p>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><img src="/Users/yushi.jing/Library/Application Support/typora-user-images/image-20251208215020867.png" alt="image-20251208215020867" style="zoom:50%;" />
 
                 
             </div>
@@ -444,7 +612,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Jingzypro.github.io/2025/12/06/About-me/">http://Jingzypro.github.io/2025/12/06/About-me/</a>
+                    <a href="http://Jingzypro.github.io/2025/12/06/AI-note/">http://Jingzypro.github.io/2025/12/06/AI-note/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -481,7 +649,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Artificial-Intelligence/">
+                                    <span class="chip bg-color">Artificial Intelligence</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -525,9 +697,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2025/12/06/AI-note/">
                     <div class="card-image">
@@ -545,9 +718,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -560,6 +733,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -575,7 +749,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2025/12/06/About-me/">
@@ -605,7 +779,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
